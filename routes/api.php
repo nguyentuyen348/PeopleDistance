@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\AccountController;
 use App\Http\Controllers\Api\PeopleController;
 use App\Http\Controllers\Api\SchoolController;
+use App\Http\Controllers\api\UploadFileController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -44,6 +45,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     ], function () {
         Route::get('/get-top20', [PeopleController::class,'findTop20PercentByAgeDifference']);
     });
+
+    Route::group([
+        'prefix' => '/file'
+    ], function () {
+        Route::post('/upload', [UploadFileController::class,'upload']);
+    });
+
 
 
 
