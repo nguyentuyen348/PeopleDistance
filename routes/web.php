@@ -20,3 +20,4 @@ Route::get('/', function () {
 
 Route::get('/furthest-people', [DistanceController::class, 'findFurthestPeople']);
 
+
